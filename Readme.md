@@ -1,6 +1,6 @@
 # 🌾 Pesticide Recommendation Chatbot
 
-AI-powered assistant for pesticide recommendations using AWS Bedrock, structured data, and RAG fallback.
+AI-powered assistant for pesticide recommendations using Groq LLM model , structured data, and RAG fallback.
 
 ---
 
@@ -173,7 +173,7 @@ Bot: [Shows only foliar spray solutions for Grapes + Powdery mildew]
 ### Components
 
 1. **TextCorrector** (`corrector.py`)
-   - Fixes typos using AWS Nova Lite
+   - Fixes typos using LLm model
    - "graeps" → "grapes"
 
 2. **PesticideDatabase** (`database.py`)
@@ -239,8 +239,8 @@ Update Session State
 - Verify table format (must have header + separator)
 
 ### Issue: "Embedding error"
-- Ensure Cohere model is available in your region
-- Check AWS Bedrock model access
+- Ensure  is available in your region
+- Check  model access
 
 ---
 
@@ -260,8 +260,8 @@ Update Session State
 
 Edit in `chatbot.py`:
 ```python
-self.chat_model = "apac.amazon.nova-lite-v1:0"
-self.embedding_model = "cohere.embed-english-v3"
+self.chat_model = "openai/gpt-oss-20b"
+self.embedding_model = "local Embed "
 ```
 
 ### Adjust History Length
@@ -292,7 +292,7 @@ MIT License - Feel free to use and modify!
 Issues and PRs welcome!
 
 ## 📊 Architecture Overview
-
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                    STREAMLIT UI (app_ui.py)                  │
 │                    Port: 8501                                 │
@@ -335,3 +335,10 @@ Issues and PRs welcome!
 │  (database.py)│ │(corrector.py)│ │ (session_    │
 │              │ │              │ │  manager.py) │
 └──────────────┘ └──────────────┘ └──────────────┘
+
+
+```
+
+
+
+<img width="2880" height="1524" alt="Screenshot 2025-12-01 152335" src="https://github.com/user-attachments/assets/9c43aa57-6ed9-4c98-b468-eeaf949b66c5" />
